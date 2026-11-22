@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>海克斯大乱斗助手</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Microsoft YaHei", sans-serif; }
+    body { background: #091428; color: #f0e6d2; padding: 18px; user-select: none; }
+    .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #3c3c41; padding-bottom: 12px; margin-bottom: 16px; }
+    .title { font-size: 20px; font-weight: bold; color: #c8aa6e; letter-spacing: 1px; }
+    .status-badge { padding: 4px 12px; border-radius: 12px; font-size: 13px; background: #1e2328; border: 1px solid #5b5a56; }
+    .status-badge.online { border-color: #0ac8b9; color: #0ac8b9; }
+    .controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .card { background: #0a1b33; border: 1px solid #1e282d; border-radius: 8px; padding: 14px; }
+    .card h3 { font-size: 14px; color: #c8aa6e; margin-bottom: 10px; }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; font-size: 13px; }
+    button { background: #1e2328; color: #f0e6d2; border: 1px solid #c8aa6e; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+    button:hover { background: #c8aa6e; color: #091428; }
+    .teams { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+    .team-box { background: #0a1b33; border-radius: 8px; padding: 12px; border: 1px solid #1e282d; }
+    .team-box.blue { border-top: 3px solid #0ac8b9; }
+    .team-box.red { border-top: 3px solid #e84057; }
+    .team-title { font-size: 14px; font-weight: bold; margin-bottom: 10px; display: flex; justify-content: space-between; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid #1c2b40; }
+    th { color: #a09b8c; }
+    .mmr-score { font-weight: bold; color: #f0c14b; font-size: 13px; }
+    .tag { font-size: 11px; padding: 2px 6px; border-radius: 4px; background: #1e282d; color: #0ac8b9; }
+    .logs { background: #050d1a; border: 1px solid #1e282d; border-radius: 6px; padding: 10px; height: 130px; overflow-y: auto; font-size: 12px; color: #a09b8c; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">⚔️ 海克斯大乱斗助手</div>
+    <div>
+      <span id="phaseBadge" class="status-badge">阶段: 等待中</span>
+      <span id="lcuBadge" class="status-badge">未连接客户端</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="card">
+      <h3>自动接受匹配</h3>
+      <div class="row">
+        <label><input type="checkbox" id="autoAcceptChk" checked /> 开启秒接对局</label>
+      </div>
+      <div class="row">
+        <span>延迟(ms):</span>
+        <input type="number" id="delayInput" value="800" min="0" max="5000" step="100" style="width:72px;background:#091428;color:#fff;border:1px solid #5b5a56;padding:2px 4px;" />
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>局内海克斯推荐</h3>
+      <div class="row">
+        <label><input type="checkbox" id="overlayChk" checked /> 开启穿透悬浮窗</label>
+      </div>
+      <div class="row">
+        <button id="previewBtn">预览悬浮窗效果</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>实时隐藏分查询</h3>
+      <div class="row" style="color:#a09b8c;font-size:12px;">
+        基于公开战绩胜率/KDA/连胜推算
+      </div>
+      <div class="row">
+        <button id="refreshMmrBtn">手动刷新本局 10 人</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="teams">
+    <div class="team-box blue">
+      <div class="team-title"><span>🔵 蓝色方</span><span id="blueAvg">均分: -</span></div>
+      <table>
+        <thead><tr><th>召唤师</th><th>估算分</th><th>胜率</th><th>KDA</th><th>标签</th></tr></thead>
+        <tbody id="blueBody"><tr><td colspan="5" style="color:#5b5a56;">进入对局后自动拉取...</td></tr></tbody>
+      </table>
+    </div>
+    <div class="team-box red">
+      <div class="team-title"><span>🔴 红色方</span><span id="redAvg">均分: -</span></div>
+      <table>
+        <thead><tr><th>召唤师</th><th>估算分</th><th>胜率</th><th>KDA</th><th>标签</th></tr></thead>
+        <tbody id="redBody"><tr><td colspan="5" style="color:#5b5a56;">进入对局后自动拉取...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="logs" id="logBox"></div>
+  <script src="./main.js"></script>
+</body>
+</html>

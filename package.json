@@ -1,0 +1,42 @@
+{
+  "name": "lol-hextech-helper",
+  "version": "1.0.0",
+  "description": "英雄联盟海克斯大乱斗助手",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "build:ts": "tsc",
+    "dev": "tsc && electron .",
+    "pack": "tsc && electron-builder --win"
+  },
+  "dependencies": {
+    "league-connect": "^6.1.0",
+    "node-screenshots": "^0.1.9"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.6.3"
+  },
+  "build": {
+    "appId": "com.hextech.aram.helper",
+    "productName": "海克斯大乱斗助手",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "src/renderer/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "resources",
+        "to": "resources"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "requestedExecutionLevel": "requireAdministrator"
+    }
+  }
+}

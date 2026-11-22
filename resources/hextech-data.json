@@ -1,0 +1,68 @@
+{
+  "version": "2026.1",
+  "augments": [
+    {
+      "name": "珠光护手",
+      "tier": "S+",
+      "winRate": 58.4,
+      "desc": "技能可暴击，法师与技能型刺客质变首选",
+      "synergyChampions": ["Lux", "Ezreal", "Karthus", "Brand", "Viktor", "Syndra", "Kaisa"]
+    },
+    {
+      "name": "歌利亚巨人",
+      "tier": "S+",
+      "winRate": 57.9,
+      "desc": "巨额生命值与自适应加成，坦克与战士核心",
+      "synergyChampions": ["Chogath", "Sion", "DrMundo", "Sett", "TahmKench"]
+    },
+    {
+      "name": "踢踏舞",
+      "tier": "S",
+      "winRate": 56.2,
+      "desc": "普攻叠移速转攻速，长手射手拉扯神器",
+      "synergyChampions": ["Jinx", "Caitlyn", "Ashe", "Vayne", "KogMaw", "Twitch"]
+    },
+    {
+      "name": "尤里卡",
+      "tier": "S",
+      "winRate": 55.8,
+      "desc": "法强转技能急速，极高技能循环频率",
+      "synergyChampions": ["Ryze", "Cassiopeia", "Orianna", "Ahri", "Veigar", "Hwei"]
+    },
+    {
+      "name": "利刃华尔兹",
+      "tier": "A",
+      "winRate": 53.5,
+      "desc": "不可选取多段突进，近战收割与躲关键控",
+      "synergyChampions": ["MasterYi", "Zed", "Yasuo", "Yone", "Fiora", "Katarina"]
+    },
+    {
+      "name": "双刀流",
+      "tier": "S",
+      "winRate": 56.6,
+      "desc": "高额攻速与额外普攻触发，特效流核心",
+      "synergyChampions": ["KogMaw", "Vayne", "Varus", "Kaisa", "Kalista", "MasterYi"]
+    },
+    {
+      "name": "秘术冲拳",
+      "tier": "S+",
+      "winRate": 57.1,
+      "desc": "普攻刷新基础技能冷却，高频技能战士神级海克斯",
+      "synergyChampions": ["Jax", "Volibear", "Ezreal", "Irelia", "Vi", "XinZhao"]
+    },
+    {
+      "name": "全心为你",
+      "tier": "A",
+      "winRate": 54.1,
+      "desc": "大幅强化护盾与治疗效果，软辅必拿",
+      "synergyChampions": ["Lulu", "Soraka", "Sona", "Janna", "Karma", "Milio"]
+    },
+    {
+      "name": "恶火小斧",
+      "tier": "B",
+      "winRate": 50.8,
+      "desc": "附带灼烧与回复，适合持续消耗型英雄",
+      "synergyChampions": ["Brand", "Lillia", "Teemo", "Malzahar", "Zyra"]
+    }
+  ]
+}
